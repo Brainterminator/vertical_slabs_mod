@@ -1,10 +1,8 @@
 package com.brainterminator.verticalslabs.data.server.loot;
 
-import com.brainterminator.verticalslabs.handler.VerticalSlabGenerator;
+import com.brainterminator.verticalslabs.handler.VerticalSlabLoader;
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -17,13 +15,13 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        for(RegistryObject<Block> slab : VerticalSlabGenerator.SLABS){
+        for(RegistryObject<Block> slab : VerticalSlabLoader.SLABS){
             this.dropSelf(slab.get());
         }
     }
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return VerticalSlabGenerator.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+        return VerticalSlabLoader.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
 }

@@ -15,7 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-public class VerticalSlabGenerator {
+public class VerticalSlabLoader {
 
     public static ArrayList<RegistryObject<Block>> SLABS = new ArrayList<>();
     public static ArrayList<RegistryObject<Item>> SLAB_ITEMS = new ArrayList<>();

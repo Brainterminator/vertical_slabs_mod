@@ -1,11 +1,10 @@
 package com.brainterminator.verticalslabs.data.client;
 
 import com.brainterminator.verticalslabs.VerticalSlabs;
-import com.brainterminator.verticalslabs.handler.VerticalSlabGenerator;
+import com.brainterminator.verticalslabs.handler.VerticalSlabLoader;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -19,7 +18,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        for(RegistryObject<Block> slab : VerticalSlabGenerator.SLABS){
+        for(RegistryObject<Block> slab : VerticalSlabLoader.SLABS){
 
         }
     }

@@ -1,6 +1,6 @@
 package com.brainterminator.verticalslabs;
 
-import com.brainterminator.verticalslabs.handler.VerticalSlabGenerator;
+import com.brainterminator.verticalslabs.handler.VerticalSlabLoader;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
@@ -35,11 +35,11 @@ public class VerticalSlabs
         modEventBus.addListener(this::commonSetup);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
-        VerticalSlabGenerator.BLOCKS.register(modEventBus);
+        VerticalSlabLoader.BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
-        VerticalSlabGenerator.ITEMS.register(modEventBus);
+        VerticalSlabLoader.ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
-        VerticalSlabGenerator.CREATIVE_MODE_TABS.register(modEventBus);
+        VerticalSlabLoader.CREATIVE_MODE_TABS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
