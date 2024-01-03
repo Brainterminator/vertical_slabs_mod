@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class VerticalSlabGenerator {
 
-    private static ArrayList<RegistryObject<Block>> SLABS = new ArrayList<>();
-    private static ArrayList<RegistryObject<Item>> SLAB_ITEMS = new ArrayList<>();
+    public static ArrayList<RegistryObject<Block>> SLABS = new ArrayList<>();
+    public static ArrayList<RegistryObject<Item>> SLAB_ITEMS = new ArrayList<>();
 
     // Create a Deferred Register to hold Blocks which will all be registered under the "verticalslabs" namespace
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, VerticalSlabs.MODID);
@@ -50,12 +50,14 @@ public class VerticalSlabGenerator {
         }
     }
 
+    public static final RegistryObject<Block> OAK_VERTICAL_SLAB = SLABS.get(3);
+
 
     // Registers the creative tab and adds all items
     public static final RegistryObject<CreativeModeTab> VERTICAL_SLABS_TAB = CREATIVE_MODE_TABS.register("verticalslabs_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.NAME_TAG))
                     .title(Component.translatable("creativetab.verticalslabs_tab"))
-                    .icon(()-> new ItemStack(SLAB_ITEMS.get(3).get()))
+                    .icon(()-> new ItemStack(SLABS.get(3).get().asItem()))
                     .displayItems((parameters, output) -> {
                         for (RegistryObject<Item> item : ITEMS.getEntries()) {
                             output.accept(item.get());
