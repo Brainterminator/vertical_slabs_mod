@@ -26,3 +26,4 @@ forge*changelog.txt
 /run-data/
 /gradlew
 /gradlew.bat
+/src/generated/

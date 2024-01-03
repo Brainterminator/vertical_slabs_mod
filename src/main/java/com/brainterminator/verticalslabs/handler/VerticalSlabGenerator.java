@@ -19,6 +19,7 @@ public class VerticalSlabGenerator {
 
     public static ArrayList<RegistryObject<Block>> SLABS = new ArrayList<>();
     public static ArrayList<RegistryObject<Item>> SLAB_ITEMS = new ArrayList<>();
+    public static ArrayList<Block> VANILLA_SLABS = new ArrayList<>();
 
     // Create a Deferred Register to hold Blocks which will all be registered under the "verticalslabs" namespace
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, VerticalSlabs.MODID);
@@ -33,19 +34,18 @@ public class VerticalSlabGenerator {
     static {
         //LOAD SLABS FROM VANILLA MINECRAFT
         Class<?> blocks = Blocks.class;
-        ArrayList<Block> slabs = new ArrayList<>();
         Field[] fields = blocks.getFields();
         for (Field field : fields) {
             if (field.getName().contains("_SLAB")) {
                 try {
-                    slabs.add((Block) field.get(null));
+                    VANILLA_SLABS.add((Block) field.get(null));
                 } catch (IllegalAccessException e) {
                     throw new RuntimeException(e);
                 }
             }
         }
         //GENERATE ACCORDING SLAB BLOCKS
-        for (Block slab : slabs) {
+        for (Block slab : VANILLA_SLABS) {
             SLABS.add(registerWall(slab));
         }
     }
@@ -74,5 +74,23 @@ public class VerticalSlabGenerator {
                         BlockBehaviour.Properties.copy(block)));
         SLAB_ITEMS.add(ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties())));
         return toReturn;
+    }
+
+    public static Block getVanillaOf(Block block){
+        if(!(block instanceof VerticalSlabBlock)) return null;
+        String name = block.getName().toString().split("'")[1].replace("block.minecraft","").replace("_slab","").toUpperCase();
+
+        Class<?> blocks = Blocks.class;
+        Field[] fields = blocks.getFields();
+        for (Field field : fields) {
+            if (field.getName().equals(name)) {
+                try {
+                    return (Block) field.get(null);
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+        return null;
     }
 }

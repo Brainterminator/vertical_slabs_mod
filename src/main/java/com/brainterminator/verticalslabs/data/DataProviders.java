@@ -23,8 +23,8 @@ public class DataProviders {
         provider.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
         provider.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
 
-        provider.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
-        provider.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
+        //provider.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
+        //provider.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
 
         ModBlockTagProvider blockTagProvider = provider.addProvider(event.includeServer(),
                 new ModBlockTagProvider(packOutput,lookupProvider,existingFileHelper));
