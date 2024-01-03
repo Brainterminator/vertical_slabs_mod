@@ -77,13 +77,13 @@ public class VerticalSlabGenerator {
     }
 
     public static Block getVanillaOf(Block block){
-        if(!(block instanceof VerticalSlabBlock)) return null;
-        String name = block.getName().toString().split("'")[1].replace("block.minecraft","").replace("_slab","").toUpperCase();
+        //if(!(block instanceof VerticalSlabBlock)) return null;
+        String name = block.getName().toString().split("'")[1].replace("block.verticalslabs.","").replace("_vertical_slab","_slab").toUpperCase();
 
         Class<?> blocks = Blocks.class;
         Field[] fields = blocks.getFields();
         for (Field field : fields) {
-            if (field.getName().equals(name)) {
+            if (field.getName().contains(name)) {
                 try {
                     return (Block) field.get(null);
                 } catch (IllegalAccessException e) {

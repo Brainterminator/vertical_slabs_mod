@@ -3,10 +3,7 @@ package com.brainterminator.verticalslabs.data;
 import com.brainterminator.verticalslabs.VerticalSlabs;
 import com.brainterminator.verticalslabs.handler.VerticalSlabGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
@@ -25,12 +22,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     protected void verticalSlabRecipeBuilder(Block slab, RecipeOutput recipeOutput){
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, slab)
-                .pattern("X")
-                .pattern("X")
-                .pattern("X")
-                .define('X', VerticalSlabGenerator.getVanillaOf(slab))
-                .unlockedBy(getHasName(VerticalSlabGenerator.getVanillaOf(slab)), has(VerticalSlabGenerator.getVanillaOf(slab)))
+        Block original = VerticalSlabGenerator.getVanillaOf(slab);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, slab)
+                .requires(original)
+                .unlockedBy(getHasName(original),has(original))
                 .save(recipeOutput);
     }
 }
