@@ -1,4 +1,4 @@
-package com.brainterminator.verticalslabs.data.loot;
+package com.brainterminator.verticalslabs.data.server.loot;
 
 import com.brainterminator.verticalslabs.handler.VerticalSlabGenerator;
 import net.minecraft.data.loot.BlockLootSubProvider;

@@ -1,4 +1,4 @@
-package com.brainterminator.verticalslabs.data;
+package com.brainterminator.verticalslabs.data.server;
 
 import com.brainterminator.verticalslabs.VerticalSlabs;
 import com.brainterminator.verticalslabs.handler.VerticalSlabGenerator;

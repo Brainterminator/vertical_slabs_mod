@@ -1,9 +1,8 @@
-package com.brainterminator.verticalslabs.data;
+package com.brainterminator.verticalslabs.data.server;
 
-import com.brainterminator.verticalslabs.data.loot.ModBlockLootTables;
+import com.brainterminator.verticalslabs.data.server.loot.ModBlockLootTables;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
-import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
 import java.util.List;
