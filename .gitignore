@@ -24,6 +24,4 @@ run
 # Files from Forge MDK
 forge*changelog.txt
 /run-data/
-/gradlew
-/gradlew.bat
 /src/generated/
