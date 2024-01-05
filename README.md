@@ -6,7 +6,7 @@ This mod is supposed to load all existing slab blocks and generate a vertical sl
 
 ## Installation
 
-You can download the mod file [here](https://github.com/Brainterminator)
+You can download the mod file [here](https://github.com/Brainterminator/vertical_slabs_mod/releases/download/0.1.0/verticalslabs-0.1.0.jar)
 
 ## Deployment
 
