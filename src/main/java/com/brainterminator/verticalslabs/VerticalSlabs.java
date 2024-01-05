@@ -1,5 +1,6 @@
 package com.brainterminator.verticalslabs;
 
+import com.brainterminator.verticalslabs.data.client.BlockStateAndModelGenerator;
 import com.brainterminator.verticalslabs.handler.VerticalSlabLoader;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -79,6 +80,7 @@ public class VerticalSlabs
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            //BlockStateAndModelGenerator.registerBlockStatesAndModels(); RUN ONLY WHEN GENERATING FILES!
         }
     }
 }

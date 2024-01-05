@@ -1,6 +1,7 @@
 package com.brainterminator.verticalslabs.data;
 
 import com.brainterminator.verticalslabs.VerticalSlabs;
+import com.brainterminator.verticalslabs.data.client.BlockStateAndModelGenerator;
 import com.brainterminator.verticalslabs.data.client.lang.EnglishLangProvider;
 import com.brainterminator.verticalslabs.data.server.ModBlockTagProvider;
 import com.brainterminator.verticalslabs.data.server.ModLootTableProvider;
@@ -31,6 +32,9 @@ public class DataGen {
                 new ModBlockTagProvider(packOutput,lookupProvider,existingFileHelper));
 
         provider.addProvider(event.includeClient(), new EnglishLangProvider(packOutput));
+
+
         //provider.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
+        //currently disabled run the BlockStateAndModelGenerator to generate the files.
     }
 }
