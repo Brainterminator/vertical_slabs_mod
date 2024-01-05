@@ -80,7 +80,7 @@ public class VerticalSlabs
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-            //BlockStateAndModelGenerator.registerBlockStatesAndModels(); RUN ONLY WHEN GENERATING FILES!
+            //BlockStateAndModelGenerator.registerBlockStatesAndModels(); //RUN ONLY WHEN GENERATING FILES!
         }
     }
 }
