@@ -16,6 +16,7 @@ public class BlockStateAndModelGenerator {
 
     //CALL THIS ONCE TO GENERATE FILES!
     public static void registerBlockStatesAndModels(){
+        generateFolderStructure();
         for(RegistryObject<Block> slab : VerticalSlabLoader.SLABS){
             generateBlockState(slab.get());
             generateBlockModel(slab.get());
@@ -23,6 +24,30 @@ public class BlockStateAndModelGenerator {
             generateBlockModelOuter(slab.get());
             generateItemModel(slab.get());
         }
+    }
+
+    protected static void generateFolderStructure(){
+        createFolder("../src/");
+        createFolder("../src/generated/");
+        createFolder("../src/generated/resources/assets/");
+        createFolder("../src/generated/resources/assets/verticalslabs/");
+        createFolder("../src/generated/resources/assets/verticalslabs/blockstates/");
+        createFolder("../src/generated/resources/assets/verticalslabs/models/");
+        createFolder("../src/generated/resources/assets/verticalslabs/models/block/");
+        createFolder("../src/generated/resources/assets/verticalslabs/models/item/");
+    }
+
+    public static void createFolder(String path) {
+        File folder = new File(path);
+            if (!folder.exists()) {
+                if (folder.mkdirs()) {
+                    System.err.println("Folder created: " + path);
+                } else {
+                    System.err.println("Failed to create folder: " + path);
+                }
+            } else {
+                System.err.println("Folder already exists: " + path);
+            }
     }
     protected static void generateBlockState(Block block){
         String blockName = I18n.get(block.getDescriptionId()).replace("block.verticalslabs.", "");

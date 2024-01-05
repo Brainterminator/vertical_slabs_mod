@@ -1,8 +1,10 @@
 package com.brainterminator.verticalslabs.data.server;
 
 import com.brainterminator.verticalslabs.VerticalSlabs;
+import com.brainterminator.verticalslabs.handler.VerticalSlabLoader;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -17,5 +19,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         //this.tag(BlockTags.MINEABLE_WITH_AXE).add(VerticalSlabGenerator.OAK_VERTICAL_SLAB.get());
+        tag(BlockTags.MINEABLE_WITH_AXE).add(VerticalSlabLoader.SLABS.get(3).get());
     }
 }
